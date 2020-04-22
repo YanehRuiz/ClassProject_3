@@ -38,7 +38,7 @@ public class ZeldaGameState extends State {
         yOffset = handler.getHeight()/4;
         stageWidth = handler.getWidth()/3 + (handler.getWidth()/15);
         stageHeight = handler.getHeight()/2;
-        worldScale = 3;
+        worldScale = 2;
         mapX = 7;
         mapY = 7;
         mapWidth = 256;
@@ -93,9 +93,9 @@ public class ZeldaGameState extends State {
                 entity.render(g);
             }
             g.setColor(Color.WHITE);
-            g.setFont(new Font("TimesRoman", Font.BOLD, 32));
-            g.drawString("  IT ' S  DANGEROUS  TO  GO",(3 * (ZeldaGameState.stageWidth/16)) + ZeldaGameState.xOffset,(2 * (ZeldaGameState.stageHeight/11)) + ZeldaGameState.yOffset+ ((16*worldScale)));
-            g.drawString("  ALONE !   TAKE  THIS",(4 * (ZeldaGameState.stageWidth/16)) + ZeldaGameState.xOffset,(4 * (ZeldaGameState.stageHeight/11)) + ZeldaGameState.yOffset- ((16*worldScale)/2));
+            g.setFont(new Font("TimesRoman", Font.BOLD, 28));
+            g.drawString("  IT ' S  DANGEROUS  TO  GO",(2 * (ZeldaGameState.stageWidth/16)) + ZeldaGameState.xOffset,(2 * (ZeldaGameState.stageHeight/11)) + ZeldaGameState.yOffset+ ((12*worldScale)));
+            g.drawString("  ALONE !   TAKE  THIS",(3 * (ZeldaGameState.stageWidth/16)) + ZeldaGameState.xOffset,(5 * (ZeldaGameState.stageHeight/11)) + ZeldaGameState.yOffset- ((14*worldScale)/2));
             link.render(g);
         }else {
             g.drawImage(Images.zeldaMap, -cameraOffsetX + xOffset, -cameraOffsetY + yOffset, Images.zeldaMap.getWidth() * worldScale, Images.zeldaMap.getHeight() * worldScale, null);
