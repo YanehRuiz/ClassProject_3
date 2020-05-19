@@ -49,94 +49,167 @@ public class Link extends BaseMovingEntity {
 		
 		if (movingMap){
 			switch (movingTo) {
+//			case RIGHT:
+//				handler.getZeldaGameState().cameraOffsetX++;
+//			//	handler.getZeldaGameState().cameraOffsetX+=2;
+//				//newMapX+=2;	
+//				newMapX++;
+//				
+//				if (xExtraCounter>0){
+//					x+=6;
+//					xExtraCounter--;
+//					animation.tick();
+////				if(newMapX>=0) {
+////						newMapX=0; }
+//
+//
+//				}else{
+//					x--;
+//				}
+//				break;
+//				
+//			case LEFT:
+//				handler.getZeldaGameState().cameraOffsetX--;
+//				newMapX--;
+//				//newMapX-=2;		
+////				if(newMapX<=0) {
+////						newMapX=0;}
+//				if (xExtraCounter>0){
+//					x-=6;
+//					xExtraCounter--;
+//					animation.tick();
+//			
+//
+//
+//				}else{
+//					x++;
+//				}
+//				break;
+//			case UP:
+//				handler.getZeldaGameState().cameraOffsetY--;
+//				newMapY++;
+////				if(newMapY>=0) {
+////						newMapY=0;}
+//				if (yExtraCounter>0){
+//					y-=6;
+//					yExtraCounter--;
+//					animation.tick();
+//					
+//
+//
+//				}else{
+//					y++;
+//				}
+//				break;
+//			case DOWN:
+//				handler.getZeldaGameState().cameraOffsetY++;
+//				newMapY--;
+////				if(newMapY<=0) {
+////				newMapY=0;}
+//				if (yExtraCounter>0){
+//					y+=2;
+//					yExtraCounter--;
+//					animation.tick();		
+//					
+//					
+//		
+//
+//				}else{
+//					y--;
+//				}
+//				break;
+//			}
+//			bounds = new Rectangle(x,y,width,height);
+//			changeIntersectingBounds();
+//
+//			
+//			if (newMapX == 0 && newMapY == 0){ 
+//				movingMap = false;
+//				movingTo = null;
+//				newMapX = 0;
+//				newMapY = 0;
+//			}
+//		}else {
+//			if (handler.getKeyManager().up) {
+//				if (direction != UP) {
+//					BufferedImage[] animList = new BufferedImage[2];
+//					animList[0] = sprites[4];
+//					animList[1] = sprites[5];
+//					animation = new Animation(animSpeed, animList);
+//					direction = UP;
+//					sprite = sprites[4];
+//				}
+//				animation.tick();
+//				move(direction);
+			
 			case RIGHT:
-				handler.getZeldaGameState().cameraOffsetX+=2;
-				newMapX+=2;	
-				
-				if (xExtraCounter>0){
-					x+=6;
-					xExtraCounter--;
-					animation.tick();
-				if(newMapX>=0) {
-						newMapX=0; }
+                handler.getZeldaGameState().cameraOffsetX++;
+                newMapX++;
+                if (xExtraCounter>0){
+                    x+=2;
+                    xExtraCounter--;
+                    animation.tick();
 
+                }else{
+                    x--;
+                }
+                break;
+            case LEFT:
+                handler.getZeldaGameState().cameraOffsetX--;
+                newMapX--;
+                if (xExtraCounter>0){
+                    x-=2;
+                    xExtraCounter--;
+                    animation.tick();
 
-				}else{
-					x--;
-				}
-				break;
-				
-			case LEFT:
-				handler.getZeldaGameState().cameraOffsetX-=2;
-				newMapX-=2;		
-				if(newMapX<=0) {
-						newMapX=0;}
-				if (xExtraCounter>0){
-					x-=6;
-					xExtraCounter--;
-					animation.tick();
-			
+                }else{
+                    x++;
+                }
+                break;
+            case UP:
+                handler.getZeldaGameState().cameraOffsetY--;
+                newMapY++;
+                if (yExtraCounter>0){
+                    y-=2;
+                    yExtraCounter--;
+                    animation.tick();
 
-
-				}else{
-					x++;
-				}
-				break;
-			case UP:
-				handler.getZeldaGameState().cameraOffsetY-=2;
-				newMapY++;
-				if(newMapY>=0) {
-						newMapY=0;}
-				if (yExtraCounter>0){
-					y-=6;
-					yExtraCounter--;
-					animation.tick();
-					
-
-
-				}else{
-					y++;
-				}
-				break;
-			case DOWN:
-				handler.getZeldaGameState().cameraOffsetY+=2;
-				newMapY-=2;
-				if(newMapY<=0) {
-				newMapY=0;
-				if (yExtraCounter>0){
-					y+=2;
-					yExtraCounter--;
-					animation.tick();		
-					
-					}
-
-				}else{
-					y--;
-				}
-				break;
-			}
-			bounds = new Rectangle(x,y,width,height);
-			changeIntersectingBounds();
-
-			
-			if (newMapX == 0 && newMapY == 0){ 
-				movingMap = false;
-				movingTo = null;
-				newMapX = 0;
-				newMapY = 0;
-			}
-		}else {
-			if (handler.getKeyManager().up) {
-				if (direction != UP) {
-					BufferedImage[] animList = new BufferedImage[2];
-					animList[0] = sprites[4];
-					animList[1] = sprites[5];
-					animation = new Animation(animSpeed, animList);
-					direction = UP;
-					sprite = sprites[4];
-				}
-				animation.tick();
-				move(direction);
+                }else{
+                    y++;
+                }
+                break;
+            case DOWN:
+                handler.getZeldaGameState().cameraOffsetY++;
+                newMapY--;
+                if (yExtraCounter>0){
+                    y+=2;
+                    yExtraCounter--;
+                    animation.tick();
+                }else{
+                    y--;
+                }
+                break;
+        }
+        bounds = new Rectangle(x,y,width,height);
+        changeIntersectingBounds();
+        if (newMapX == 0 && newMapY == 0){
+            movingMap = false;
+            movingTo = null;
+            newMapX = 0;
+            newMapY = 0;
+        }
+    }else {
+        if (handler.getKeyManager().up) {
+            if (direction != UP) {
+                BufferedImage[] animList = new BufferedImage[2];
+                animList[0] = sprites[4];
+                animList[1] = sprites[5];
+                animation = new Animation(animSpeed, animList);
+                direction = UP;
+                sprite = sprites[4];
+            }
+            animation.tick();
+            move(direction);
 
 			} else if (handler.getKeyManager().down) {
 				if (direction != DOWN) {
