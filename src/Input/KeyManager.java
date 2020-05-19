@@ -14,6 +14,7 @@ public class KeyManager implements KeyListener {
 	public boolean up=false, down=false, left=false, right=false,shift = false;
 	public boolean pausebutt=false;
 	public boolean rbutt=false;
+	public boolean healthbutt=false;
 
 
 	public KeyManager(){
@@ -45,7 +46,9 @@ public class KeyManager implements KeyListener {
 		shift = keys[KeyEvent.VK_SHIFT] ;
 		
 		rbutt = keys[KeyEvent.VK_R];
+		healthbutt = keys[KeyEvent.VK_H];
 
+		
 		pausebutt = keys[KeyEvent.VK_ESCAPE];
 
 	}

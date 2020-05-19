@@ -9,7 +9,9 @@ import Resources.Animation;
 import Resources.Images;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import static Game.GameStates.Zelda.ZeldaGameState.worldScale;
 import static Game.Zelda.Entities.Dynamic.Direction.DOWN;
@@ -36,10 +38,15 @@ public class Link extends BaseMovingEntity {
 		animList[1] = sprite[5];
 
 		animation = new Animation(animSpeed,animList);
+	
 	}
 
 	@Override
 	public void tick() {
+		if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_H) && health < 6){ 
+	    	health++;}
+		
+		
 		if (movingMap){
 			switch (movingTo) {
 			case RIGHT:
