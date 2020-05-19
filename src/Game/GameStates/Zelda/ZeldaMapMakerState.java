@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * Created by AlexVR on 3/14/2020
@@ -200,6 +201,66 @@ public class ZeldaMapMakerState extends State {
                 }
             }
         }
+        if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_B)){ 
+            switch (selector) {
+                case 0:
+                    if (counter >= 15) {
+                        counter = 0;
+                    } else {
+                        counter = 15;
+                    }
+                    break;
+                    
+                default:
+                    if (counter >= 20) {
+                        counter = 0;
+                    } else {
+                        counter = 20;
+                    }
+                    break;
+            }
+        }
+    if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_R)){ 
+    	  Random randomized = new Random();
+    	int number1 = randomized.nextInt(30);
+        int number2 = randomized.nextInt(42);
+        switch (selector) {
+            case 0:
+                counter = number1;
+                break;     
+            default:
+                counter = number2;
+                break;
+        } }
+    if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_R) && handler.getKeyManager().keyJustPressed(KeyEvent.VK_SHIFT)){
+    	  Random randomized = new Random();
+        int tileNumberSelect = randomized.nextInt(5);
+        int tileSelect = randomized.nextInt(26); 
+        
+        switch (tileNumberSelect) {
+        case 0:
+            selectedList = Images.zeldaTiles;
+            counter = tileSelect;
+            break;
+        case 1:
+            selectedList = Images.forestTiles;
+            counter = tileSelect;
+            break;
+        case 2:
+            selectedList = Images.caveTiles;
+            counter = tileSelect;
+            break;
+        case 3:
+            selectedList = Images.mountainTiles;
+            counter = tileSelect;
+            break;
+        case 4:
+            selectedList = Images.graveTiles;
+            counter = tileSelect;
+            break;
+    }
+    }
+
         if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_U) && drawStack.size()>0){
 
             if(grid.get(drawStack.get(drawStack.size()-1)[0]).get(drawStack.get(drawStack.size()-1)[1]) !=null&&(grid.get(drawStack.get(drawStack.size()-1)[0]).get(drawStack.get(drawStack.size()-1)[1]).getHeight()*scale)>pixelsPerSquare){

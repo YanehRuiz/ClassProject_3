@@ -20,11 +20,16 @@ public class ZeldaIntroStates extends State {
         super(handler);
         introAnimation = new Animation(100, Images.zeldaTitleFrames);
     }
+     public boolean ZeldaPlayed=false;
 
     @Override
-    public void tick() {
+    public void tick() {        	
+    	if(!ZeldaPlayed) {
+        	handler.getMusicHandler().startMusic("Zelda.wav");
+        	ZeldaPlayed=true;}
         if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_ENTER)){
-            handler.changeState(handler.getZeldaGameState());
+        	handler.getMusicHandler().stopMusic();
+        	handler.changeState(handler.getZeldaGameState());
         }
         if(stage == 0) {
             introAnimation.tick();

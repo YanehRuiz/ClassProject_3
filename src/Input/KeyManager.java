@@ -13,6 +13,7 @@ public class KeyManager implements KeyListener {
 	private boolean[] keys,justPressed,cantPress;
 	public boolean up=false, down=false, left=false, right=false,shift = false;
 	public boolean pausebutt=false;
+	public boolean rbutt=false;
 
 
 	public KeyManager(){
@@ -42,6 +43,8 @@ public class KeyManager implements KeyListener {
 		left = keys[KeyEvent.VK_A] || keys[KeyEvent.VK_LEFT];
 		right = keys[KeyEvent.VK_D] || keys[KeyEvent.VK_RIGHT];
 		shift = keys[KeyEvent.VK_SHIFT] ;
+		
+		rbutt = keys[KeyEvent.VK_R];
 
 		pausebutt = keys[KeyEvent.VK_ESCAPE];
 
@@ -53,7 +56,7 @@ public class KeyManager implements KeyListener {
 			return;
 		keys[e.getKeyCode()] = true;
 	}
-
+	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)

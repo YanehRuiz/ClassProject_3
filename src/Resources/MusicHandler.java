@@ -53,6 +53,7 @@ public class MusicHandler {
     public void triggerGalaga(){
         changeMusic("space.wav");
     }
+    
 
     //Untested
     public void stopAllEffects(){
