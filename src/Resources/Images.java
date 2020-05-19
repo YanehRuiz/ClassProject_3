@@ -66,8 +66,12 @@ public class Images {
     public static ArrayList<BufferedImage> zeldaWorldLayoutTiles;
 
     public static BufferedImage zeldaLinkImage;
+    public static BufferedImage zeldaNpcWorld;
+    public SpriteSheet zeldaNpcWorldSpriteSheet;
     public SpriteSheet zeldaLinkSpriteSheet;
     public static BufferedImage[] zeldaLinkFrames;
+    public static BufferedImage[] oldMan;
+    public static BufferedImage[] fire;
 
     public static ArrayList<BufferedImage> forestTiles;
     public static ArrayList<BufferedImage> caveTiles;
@@ -108,6 +112,8 @@ public class Images {
         mountainTiles = new ArrayList<>();
 
         zeldaLinkFrames = new BufferedImage[8];
+        oldMan = new BufferedImage[1];
+        fire = new BufferedImage[1];
 
         bouncyEnemyFrames = new BufferedImage[2];
 
@@ -251,6 +257,12 @@ public class Images {
             zeldaLinkFrames[5] = zeldaLinkSpriteSheet.crop(86,11,16,16);
             zeldaLinkFrames[6] = zeldaLinkSpriteSheet.crop(213,11,16,16);
             zeldaLinkFrames[7] = zeldaLinkSpriteSheet.crop(230,11,16,16);
+            
+            zeldaNpcWorld = ImageIO.read(getClass().getResourceAsStream("/UI/Backgrounds/Zelda/npc.png"));
+            zeldaNpcWorld = createImageTransparent(zeldaNpcWorld,"npc_0,128,0_green",new Color(0,128,0).getRGB());
+            zeldaNpcWorldSpriteSheet = new SpriteSheet(createImageTransparent(zeldaNpcWorld,"npc_116,116,116_gray",new Color(116,116,116).getRGB()));
+            oldMan[0] = zeldaNpcWorldSpriteSheet.crop(0, 10, 17, 17);
+            fire[0] = zeldaNpcWorldSpriteSheet.crop(51, 67, 17, 17);
 
             zeldaWorldLayoutTileImage = ImageIO.read(getClass().getResourceAsStream("/UI/Backgrounds/Zelda/layout.png"));
             zeldaWorldLayoutTileSpriteSheet = new SpriteSheet( createImageTransparent(zeldaWorldLayoutTileImage,"layout_0,128,0_green",new Color(0,128,0).getRGB()));

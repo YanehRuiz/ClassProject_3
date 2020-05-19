@@ -28,6 +28,8 @@ public class ZeldaGameState extends State {
     public ArrayList<ArrayList<ArrayList<BaseMovingEntity>>> enemies;
     public Link link;
     public static boolean inCave = false;
+    public Image oldMan;
+    public Images fire;
     public ArrayList<SolidStaticEntities> caveObjects;
 
 
@@ -93,9 +95,11 @@ public class ZeldaGameState extends State {
                 entity.render(g);
             }
             g.setColor(Color.WHITE);
-            g.setFont(new Font("TimesRoman", Font.BOLD, 28));
-            g.drawString("  IT ' S  DANGEROUS  TO  GO",(2 * (ZeldaGameState.stageWidth/16)) + ZeldaGameState.xOffset,(2 * (ZeldaGameState.stageHeight/11)) + ZeldaGameState.yOffset+ ((12*worldScale)));
-            g.drawString("  ALONE !   TAKE  THIS",(3 * (ZeldaGameState.stageWidth/16)) + ZeldaGameState.xOffset,(5 * (ZeldaGameState.stageHeight/11)) + ZeldaGameState.yOffset- ((14*worldScale)/2));
+            g.setFont(new Font("TimesRoman", Font.BOLD, 20));
+            g.drawString("  IT ' S  DANGEROUS  TO  GO",(3 * (ZeldaGameState.stageWidth/16)) + ZeldaGameState.xOffset,(2 * (ZeldaGameState.stageHeight/11)) + ZeldaGameState.yOffset+ ((12*worldScale)));
+            g.drawString("  ALONE !   TAKE  THIS",(4 * (ZeldaGameState.stageWidth/16)) + ZeldaGameState.xOffset,(4 * (ZeldaGameState.stageHeight/11)) + ZeldaGameState.yOffset- ((14*worldScale)/2));
+//            g.drawImage(oldMan, 5, 10, null, null);
+//            g.drawImage(oldMan, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, null);
             link.render(g);
         }else {
             g.drawImage(Images.zeldaMap, -cameraOffsetX + xOffset, -cameraOffsetY + yOffset, Images.zeldaMap.getWidth() * worldScale, Images.zeldaMap.getHeight() * worldScale, null);
